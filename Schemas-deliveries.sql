@@ -8,16 +8,26 @@ primary key (customerid)
 create table orders (
 orderid int auto_increment not null,
 ordernumber int not null,
-customerid int auto_increment not null,
+customerid int not null,
 orderdate date not null,
 primary key (orderid),
 foreign key (customerid) references customer (customerid)
 );
 
-insert into customer (customerid, customerfullname, customeremail)
-values (1, "Debbie Duncan", "dduncan@yahoo.com");
+insert into customer (customerfullname, customeremail)
+values ("Debbie Duncan", "dduncan@yahoo.com");
 
-insert into orders (orderis, ordernumber, customerid, orderdate)
-values (1, 020149, 1, 2024-02-14);
+insert into orders (ordernumber, customerid, orderdate)
+values ("020149", "1", "2024-02-14");
 
-select * from customer;
+-- update statement
+update orders
+set orderdate = "2024-02-13"
+where orderid = 2;
+
+select * from orders;
+
+-- delete statement
+delete from orders
+where orderid = 1;
+
